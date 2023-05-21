@@ -17,3 +17,8 @@
 .mdx img {
     @apply my-4 w-full;
 }
+.mdx pre {
+    padding: 20px;
+    border-radius: 10px;
+    overflow: auto;
+}

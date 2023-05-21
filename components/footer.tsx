@@ -2,7 +2,6 @@ export default function Footer() {
     return (
         <>
             <footer className="bg-white">
-
                 <div className="pt-12 lg:pt-16">
                     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                         <div className="mb-16 grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-6 lg:gap-8">
@@ -24,7 +23,7 @@ export default function Footer() {
                                         >
                                             <path d="M96 0V47L48 94H0V47L48 0H96Z" />
                                         </svg>
-                                        Flowrift
+                                        TebaPort
                                     </a>
                                 </div>
                                 {/* logo - end */}
@@ -268,7 +267,7 @@ export default function Footer() {
                             {/* nav - end */}
                         </div>
                         <div className="border-t py-8 text-center text-sm text-gray-400">
-                            © 2021 - Present Flowrift. All rights reserved.
+                            © 2023 - Present TebaPort. All rights reserved.
                         </div>
                     </div>
                 </div>
