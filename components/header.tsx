@@ -28,30 +28,30 @@ export default function Header() {
                         {/* logo - end */}
                         {/* nav - start */}
                         <nav className="hidden gap-12 lg:flex">
-                            <a
-                                href="#"
+                            <Link
+                                href="/about"
                                 className="text-lg font-semibold"
                             >
                                 About
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Works
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Experience
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Activities
-                            </a>
+                            </Link>
                         </nav>
                         {/* nav - end */}
                         {/* buttons - start */}

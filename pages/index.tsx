@@ -4,14 +4,11 @@ import { useToast, Button } from "@chakra-ui/react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Gallery from "@/components/gallery";
+import Layout from "@/components/layout";
 export default function Home() {
     return (
         <>
-            <div>
-                <Header></Header>
-                <Gallery></Gallery>
-                <Footer></Footer>
-            </div>
+            <Gallery></Gallery>
         </>
     );
 }
