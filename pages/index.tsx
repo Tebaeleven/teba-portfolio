@@ -1,35 +1,17 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
+import { Inter } from "next/font/google";
 import { useToast, Button } from "@chakra-ui/react";
-
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import Gallery from "@/components/gallery";
 export default function Home() {
-  const toast = useToast();
-
-  function ToastExample() {
     return (
-      <Button
-        onClick={() =>
-          toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-      >
-        Show Toast
-      </Button>
+        <>
+            <div>
+                <Header></Header>
+                <Gallery></Gallery>
+                <Footer></Footer>
+            </div>
+        </>
     );
-  }
-
-  return (
-    <>
-      <h1 className="text-4xl">テスト文字列</h1>
-      <ToastExample />
-    </>
-  );
 }
-
-
-
