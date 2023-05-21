@@ -12,7 +12,6 @@ export default function Header() {
                             className="text-black-800 inline-flex items-center gap-2.5 text-2xl font-bold md:text-3xl"
                             aria-label="logo"
                         >
-                            
                             <svg
                                 width={95}
                                 height={94}
@@ -51,6 +50,12 @@ export default function Header() {
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Activities
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                            >
+                                手羽先の哲学部屋
                             </Link>
                         </nav>
                         {/* nav - end */}

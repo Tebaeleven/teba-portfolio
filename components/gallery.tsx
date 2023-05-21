@@ -6,16 +6,16 @@ export default function Gallery() {
             <div className="bg-white py-6 sm:py-8 ">
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                     <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">
-                        Teba_elevenのWebサイト
+                        手羽先のポートフォリオサイト
                     </h2>
                     <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
                         {/* image - start */}
                         <Link
-                            href="#"
+                            href="about"
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+                                src="https://pbs.twimg.com/profile_images/1659863624163426305/AUZsJ_fs_400x400.jpg"
                                 loading="lazy"
                                 alt="Photo by Minh Pham"
                                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -32,7 +32,7 @@ export default function Gallery() {
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=600"
+                                src="https://pbs.twimg.com/media/FwTKE1faMAMWZid?format=jpg&name=large"
                                 loading="lazy"
                                 alt="Photo by Magicle"
                                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -66,7 +66,7 @@ export default function Gallery() {
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
+                                src="https://connpass-tokyo.s3.amazonaws.com/thumbs/6a/67/6a6786984f62d8297810c6785b46661c.png"
                                 loading="lazy"
                                 alt="Photo by Lorenzo Herrera"
                                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -82,7 +82,6 @@ export default function Gallery() {
                         <p className="max-w-screen-sm text-sm text-black lg:text-base">
                             Teba_elevenのポートフォリオサイトです！
                         </p>
-
                     </div>
                 </div>
             </div>

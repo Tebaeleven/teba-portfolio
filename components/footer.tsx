@@ -28,9 +28,8 @@ export default function Footer() {
                                 </div>
                                 {/* logo - end */}
                                 <p className="mb-6 text-gray-500 sm:pr-8">
-                                    Filler text is dummy text which has no
-                                    meaning however looks very similar to real
-                                    text
+                                    このサイトはTeba_elevenのポートフォリオサイトです。Teba_elevenについてや、
+                                    私が作った作品などを全てこのサイトにまとめています。
                                 </p>
                                 {/* social - start */}
                                 <div className="flex gap-4">
