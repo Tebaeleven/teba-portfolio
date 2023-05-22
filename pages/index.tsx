@@ -4,8 +4,10 @@ import { useToast, Button } from "@chakra-ui/react";
 import Header from "@/components/Header/header";
 import Footer from "@/components/footer";
 import Gallery from "@/components/gallery";
-import Layout from "@/components/layout";
+
+
 export default function Home() {
+
     return (
         <>
             <Gallery></Gallery>

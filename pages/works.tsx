@@ -5,10 +5,10 @@ import matter from "gray-matter";
 import WorksList from "@/components/works/WorksList";
 import TagFilter from "@/components/tag/TagFilter"
 import { useEffect, useState } from "react";
+import Layout from "@/components/Layout/layout";
 
 export default function Works({ posts }) {
     const [selectedTag, setSelectedTag] = useState("all");
-    const [filterPosts, setFilterPosts] = useState(posts);
 
     console.log(posts);
     const allTagSet = posts.reduce((acc, posts) => {
@@ -17,37 +17,17 @@ export default function Works({ posts }) {
     }, new Set([]));
 
     const allTagsArr = [...allTagSet].sort((a, b) => a.localeCompare(b));
-    //allを先頭に追加
-    allTagsArr.unshift("all");
-    useEffect(() => {
-        let tempPosts = [...posts];
-        if (selectedTag && selectedTag !== "all") {
-            tempPosts = posts.filter((post) =>
-                post.frontmatter.tags.includes(selectedTag)
-            );
-        }
-        setFilterPosts(tempPosts);
-    }, [selectedTag, posts]);
+    allTagsArr.unshift("all"); //allを先頭に追加
     console.log(allTagSet);
 
     return (
         <>
             <div className="bg-blue-100 pb-10">
-                <h1 className="text-4xl py-4 font-bold text-center ">
-                    Works - 作品一覧
-                </h1>
-                <div className="text-center pb-4">
-                    <TagFilter
-                        selectedTag={selectedTag}
-                        setSelectedTag={setSelectedTag}
-                        tags={allTagsArr}
-                    ></TagFilter>
-                </div>
-
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto bg-white py-1 px-1 rounded-xl">
-                    <WorksList posts={filterPosts}></WorksList>
+                    <WorksList posts={posts}></WorksList>
                 </div>
             </div>
+            
         </>
     );
 }
@@ -70,3 +50,6 @@ export async function getStaticProps() {
         },
     };
 }
+Works.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

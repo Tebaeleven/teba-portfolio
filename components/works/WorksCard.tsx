@@ -3,7 +3,7 @@ export default function WorksCard({ post }) {
     return (
         <>
             <div className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-4 my-4">
-                <a href={"works/" + post.slug}>
+                <a href={"/works/" + post.slug}>
                     <img
                         className="rounded-t-lg"
                         src={post.frontmatter.cover}
@@ -19,12 +19,14 @@ export default function WorksCard({ post }) {
                     {post.frontmatter.tags && (
                         <p className="mb-2">
                             {post.frontmatter.tags.map((tag, index, tags) => (
-                                <span
-                                    key={tag}
-                                    className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-                                >
-                                    {tag}
-                                </span>
+                                <Link href={"/works/skil/"+tag} key={tag}>
+                                    <span
+                                        key={tag}
+                                        className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+                                    >
+                                        {tag}
+                                    </span>
+                                </Link>
                             ))}
                         </p>
                     )}
