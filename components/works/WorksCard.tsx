@@ -17,8 +17,8 @@ export default function WorksCard({ post }) {
                         </h5>
                     </Link>
                     {post.frontmatter.tags && (
-                        <p>
-                            タグ：
+                        <p className="mb-2">
+                            
                             {post.frontmatter.tags.map((tag, index, tags) => (
                                 <span
                                     key={tag}
