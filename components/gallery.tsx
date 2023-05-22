@@ -28,7 +28,7 @@ export default function Gallery() {
                         {/* image - end */}
                         {/* image - start */}
                         <Link
-                            href="#"
+                            href="works"
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img
@@ -45,7 +45,7 @@ export default function Gallery() {
                         {/* image - end */}
                         {/* image - start */}
                         <Link
-                            href="#"
+                            href="experience"
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img
@@ -62,7 +62,7 @@ export default function Gallery() {
                         {/* image - end */}
                         {/* image - start */}
                         <Link
-                            href="#"
+                            href="activities"
                             className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
                         >
                             <img

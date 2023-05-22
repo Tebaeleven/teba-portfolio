@@ -1,6 +1,6 @@
 import WorksCard from "./WorksCard"
 
-export default function WorksList({ posts }) {
+export default function WorksList({ posts}) {
     return (
         <>
             {posts.map((post) => (

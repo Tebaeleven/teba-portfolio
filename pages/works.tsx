@@ -9,10 +9,10 @@ export default function Works({ posts }) {
     return (
         <>
             <div className="bg-blue-100">
-                <h1 className="text-4xl font-bold text-center ">
+                <h1 className="text-4xl py-4 font-bold text-center ">
                     Works - 作品一覧
                 </h1>
-                <div className="flex flex-column max-w-screen-xl bg-white mx-auto">
+                <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto">
                     <WorksList posts={posts}></WorksList>
                 </div>
             </div>
@@ -29,7 +29,7 @@ export async function getStaticProps() {
         const { data } = matter(content);
         return {
             frontmatter: data,
-            slug,
+            slug: slug.replace(/\.mdx?$/, ""),
         };
     });
     return {
