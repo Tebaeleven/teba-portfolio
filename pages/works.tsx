@@ -2,7 +2,7 @@ import { postsFileNames, postsPath } from "@/utils/mdxWorks";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import WorksList from "@/components/works/worksList";
+import WorksList from "@/components/works/WorksList";
 
 export default function Works({ posts }) {
     console.log(posts)
