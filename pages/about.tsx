@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import { postsFileNames, postsPath } from "@/utils/mdxUtils";
+import { postsFileNames, postsPath } from "@/utils/mdxAbout";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -23,10 +23,10 @@ export default function About({ source }) {
 }
 
 export async function getStaticProps() {
-    const content = fs.readFileSync(path.join(postsPath, "pages/about.mdx"));
+    const content = fs.readFileSync(path.join(postsPath, "about.mdx"));
     const options = {
         // Use one of Shiki's packaged themes
-        theme: "one-dark-pro",
+        theme: "slack-dark",
         keepBackground: true,
         onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and
