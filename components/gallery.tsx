@@ -77,6 +77,7 @@ export default function Gallery() {
                             </span>
                         </Link>
                         {/* image - end */}
+                        
                     </div>
                     <div className="flex items-start justify-between gap-8 sm:items-center">
                         <p className="max-w-screen-sm text-sm text-black lg:text-base">

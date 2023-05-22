@@ -1,4 +1,4 @@
-import { postsFileNames, postsPath } from "@/utils/mdxWorks";
+import {postsFileNames, postsPath } from "@/utils/mdxWorks";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";

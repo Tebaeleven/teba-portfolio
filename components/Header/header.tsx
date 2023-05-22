@@ -1,6 +1,17 @@
 import Link from "next/link";
+import HeaderNav from "./HeaderNav"
+import { useState } from "react";
 
 export default function Header() {
+    const [selectedTag, setSelectedTag] = useState("Home");
+
+    const tagMapping = {
+        Home: "/",
+        Works: "works",
+        Experience: "experience",
+        Activities: "activities",
+        手羽先の哲学部屋: "teba-poem",
+    };
     return (
         <>
             <div className="bg-white">
@@ -29,7 +40,7 @@ export default function Header() {
                         <nav className="hidden gap-12 lg:flex">
                             <Link
                                 href="/about"
-                                className="text-lg font-semibold"
+                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 About
                             </Link>
@@ -40,19 +51,19 @@ export default function Header() {
                                 Works
                             </Link>
                             <Link
-                                href="#"
+                                href="/experience"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Experience
                             </Link>
                             <Link
-                                href="#"
+                                href="/activities"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 Activities
                             </Link>
                             <Link
-                                href="#"
+                                href="/teba-poem"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
                                 手羽先の哲学部屋
@@ -88,6 +99,12 @@ export default function Header() {
                     </header>
                 </div>
             </div>
+
+            {/* <HeaderNav
+                selectedTag={selectedTag}
+                setSelectedTag={setSelectedTag}
+                tags={tagMapping}
+            ></HeaderNav> */}
         </>
     );
 }
