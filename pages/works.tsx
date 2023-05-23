@@ -2,10 +2,10 @@ import { postsFileNames, postsPath } from "@/utils/mdxWorks";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import WorksList from "@/components/works/WorksList";
+import WorksList from "@/components/Works/WorksList";
 import TagFilter from "@/components/tag/TagFilter";
 import { useEffect, useState } from "react";
-import Layout from "@/components/Layout/layout";
+import Layout from "@/components/Layout/Works/Skil";
 
 export default function Works({ posts }) {
 

@@ -3,8 +3,8 @@ import { postsFileNames, postsPath } from "@/utils/mdxWorks";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import WorksList from "@/components/works/WorksList"
-import Layout from "@/components/Layout/layout";
+import WorksList from "@/components/Works/WorksList"
+import Layout from "@/components/Layout/Works/Skil";
 
 export default function SingleSkilPage({posts,skils}) {
     // console.log(Object.values(skils));
@@ -62,8 +62,6 @@ export async function getStaticPaths() {
             slug: slug,
         },
     }));
-
-
     return {
         paths: allTags,
         fallback: false,

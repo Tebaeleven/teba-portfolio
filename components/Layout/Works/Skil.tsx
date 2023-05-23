@@ -11,6 +11,7 @@ import {
     Button
 } from "@chakra-ui/react";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+
 export default function Layout({ skils, children, allTags }) {
 
     const allTagSet = allTags && allTags.reduce((acc, posts) => {
@@ -24,15 +25,26 @@ export default function Layout({ skils, children, allTags }) {
         "JavaScript",
         "jQuery",
         "React",
-        "MDX"
+        "MDX",
     ];
+    const BackEnd = [
+        "Node.js",
+        "Python",
+        "Go",
+        "Scala",
+        "Java"
+    ];
+    const FrameWork = [
+        "Next.js",
+        "Express",
+        "Laravel",
+    ];
+
     const filterPosts = skils
         ? allTags.filter((post) =>
-            post.frontmatter.tags.includes(...Object.values(skils))
-        )
+                post.frontmatter.tags.includes(...Object.values(skils))
+            )
         : allTags;
-    const BackEnd = ["Node.js", "Python"];
-    const FrameWork = ["Next.js", "Express"];
     return (
         <>
             <div className="bg-blue-100 pb-10 px-4">
