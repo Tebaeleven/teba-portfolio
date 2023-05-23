@@ -26,6 +26,11 @@ export default function Layout({ skils, children, allTags }) {
         "React",
         "MDX"
     ];
+    const filterPosts = skils
+        ? allTags.filter((post) =>
+            post.frontmatter.tags.includes(...Object.values(skils))
+        )
+        : allTags;
     const BackEnd = ["Node.js", "Python"];
     const FrameWork = ["Next.js", "Express"];
     return (
@@ -33,6 +38,7 @@ export default function Layout({ skils, children, allTags }) {
             <div className="bg-blue-100 pb-10 px-4">
                 <h1 className="text-4xl py-4 font-bold text-center ">
                     Works - {skils && skils ? Object.values(skils) : "作品一覧"}
+                    ({filterPosts.length})
                 </h1>
                 {/* <div className="text-center pb-4">
                     <TagFilter
@@ -77,7 +83,7 @@ export default function Layout({ skils, children, allTags }) {
                                                             }
                                                             key={tag}
                                                         >
-                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">
                                                                 {tag}
                                                             </span>
                                                         </Link>
@@ -122,7 +128,7 @@ export default function Layout({ skils, children, allTags }) {
                                                             }
                                                             key={tag}
                                                         >
-                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">
                                                                 {tag}
                                                             </span>
                                                         </Link>
@@ -167,7 +173,7 @@ export default function Layout({ skils, children, allTags }) {
                                                             }
                                                             key={tag}
                                                         >
-                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">
                                                                 {tag}
                                                             </span>
                                                         </Link>
@@ -193,7 +199,7 @@ export default function Layout({ skils, children, allTags }) {
                                         <AccordionIcon />
                                     </AccordionButton>
                                 </h2>
-                                <AccordionPanel pb={4}>
+                                <AccordionPanel>
                                     {allTagSet &&
                                         Array.from(allTagSet).map(
                                             (tag, index) => (
@@ -203,7 +209,7 @@ export default function Layout({ skils, children, allTags }) {
                                                 >
                                                     <span
                                                         key={tag}
-                                                        className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+                                                        className=" bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded"
                                                     >
                                                         {tag}
                                                     </span>

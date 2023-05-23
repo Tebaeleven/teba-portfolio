@@ -13,7 +13,7 @@ export default function Works({ posts }) {
         <>
             <div className="bg-blue-100 pb-10">
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl ">
-                    <WorksList posts={posts}></WorksList>
+                    <WorksList posts={posts} ></WorksList>
                 </div>
             </div>
         </>

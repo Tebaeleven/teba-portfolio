@@ -7,8 +7,7 @@ import WorksList from "@/components/works/WorksList"
 import Layout from "@/components/Layout/layout";
 
 export default function SingleSkilPage({posts,skils}) {
-    console.log(Object.values(skils));
-    console.log("出した");
+    // console.log(Object.values(skils));
 
     const filterPosts = posts.filter((post) =>
         post.frontmatter.tags.includes(...Object.values(skils))
@@ -16,7 +15,6 @@ export default function SingleSkilPage({posts,skils}) {
     
     return (
         <>
-
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto bg-white py-1 px-1 rounded-xl">
                     <WorksList posts={filterPosts}></WorksList>
                 </div>
