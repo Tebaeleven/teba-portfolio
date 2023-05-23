@@ -11,17 +11,26 @@ import {
     Button
 } from "@chakra-ui/react";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
-export default function Layout({ skils, children, posts }) {
-    console.log(posts);
-    console.log("dada");
+export default function Layout({ skils, children, allTags }) {
+
+    const allTagSet = allTags && allTags.reduce((acc, posts) => {
+        posts.frontmatter.tags.map((tag) => acc.add(tag));
+        return acc;
+    }, new Set([]));
+
     const [selectedTag, setSelectedTag] = useState("all");
-    const FrontEnd = ["HTML&CSS", "JavaScript", "jQuery", "React", "MDX"];
+    const FrontEnd = [
+        "HTML&CSS",
+        "JavaScript",
+        "jQuery",
+        "React",
+        "MDX"
+    ];
     const BackEnd = ["Node.js", "Python"];
     const FrameWork = ["Next.js", "Express"];
     return (
         <>
-            <div className="bg-blue-100 pb-10">
-                <h1>レイアウトの始まり</h1>
+            <div className="bg-blue-100 pb-10 px-4">
                 <h1 className="text-4xl py-4 font-bold text-center ">
                     Works - {skils && skils ? Object.values(skils) : "作品一覧"}
                 </h1>
@@ -43,25 +52,40 @@ export default function Layout({ skils, children, posts }) {
                                             flex="1"
                                             textAlign="left"
                                         >
-                                            フロントエンド
+                                            フロントエンド (
+                                            {
+                                                Array.from(allTagSet).filter(
+                                                    (tag) =>
+                                                        FrontEnd.includes(tag)
+                                                ).length
+                                            }
+                                            )
                                         </Box>
                                         <AccordionIcon />
                                     </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                    {FrontEnd.map((tag, index, tags) => (
-                                        <Link
-                                            href={"/works/skil/" + tag}
-                                            key={tag}
-                                        >
-                                            <span
-                                                key={tag}
-                                                className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-                                            >
-                                                {tag}
-                                            </span>
-                                        </Link>
-                                    ))}
+                                    {allTagSet &&
+                                        Array.from(allTagSet).map(
+                                            (tag, index) => {
+                                                if (FrontEnd.includes(tag)) {
+                                                    return (
+                                                        <Link
+                                                            href={
+                                                                "/works/skil/" +
+                                                                tag
+                                                            }
+                                                            key={tag}
+                                                        >
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                                {tag}
+                                                            </span>
+                                                        </Link>
+                                                    );
+                                                }
+                                                return null;
+                                            }
+                                        )}
                                 </AccordionPanel>
                             </AccordionItem>
 
@@ -73,25 +97,40 @@ export default function Layout({ skils, children, posts }) {
                                             flex="1"
                                             textAlign="left"
                                         >
-                                            バックエンド
+                                            バックエンド (
+                                            {
+                                                Array.from(allTagSet).filter(
+                                                    (tag) =>
+                                                        BackEnd.includes(tag)
+                                                ).length
+                                            }
+                                            )
                                         </Box>
                                         <AccordionIcon />
                                     </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                    {BackEnd.map((tag, index, tags) => (
-                                        <Link
-                                            href={"/works/skil/" + tag}
-                                            key={tag}
-                                        >
-                                            <span
-                                                key={tag}
-                                                className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-                                            >
-                                                {tag}
-                                            </span>
-                                        </Link>
-                                    ))}
+                                    {allTagSet &&
+                                        Array.from(allTagSet).map(
+                                            (tag, index) => {
+                                                if (BackEnd.includes(tag)) {
+                                                    return (
+                                                        <Link
+                                                            href={
+                                                                "/works/skil/" +
+                                                                tag
+                                                            }
+                                                            key={tag}
+                                                        >
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                                {tag}
+                                                            </span>
+                                                        </Link>
+                                                    );
+                                                }
+                                                return null;
+                                            }
+                                        )}
                                 </AccordionPanel>
                             </AccordionItem>
 
@@ -103,25 +142,40 @@ export default function Layout({ skils, children, posts }) {
                                             flex="1"
                                             textAlign="left"
                                         >
-                                            フレームワーク
+                                            フレームワーク (
+                                            {
+                                                Array.from(allTagSet).filter(
+                                                    (tag) =>
+                                                        FrameWork.includes(tag)
+                                                ).length
+                                            }
+                                            )
                                         </Box>
                                         <AccordionIcon />
                                     </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                    {FrameWork.map((tag, index, tags) => (
-                                        <Link
-                                            href={"/works/skil/" + tag}
-                                            key={tag}
-                                        >
-                                            <span
-                                                key={tag}
-                                                className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-                                            >
-                                                {tag}
-                                            </span>
-                                        </Link>
-                                    ))}
+                                    {allTagSet &&
+                                        Array.from(allTagSet).map(
+                                            (tag, index) => {
+                                                if (FrameWork.includes(tag)) {
+                                                    return (
+                                                        <Link
+                                                            href={
+                                                                "/works/skil/" +
+                                                                tag
+                                                            }
+                                                            key={tag}
+                                                        >
+                                                            <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                                                                {tag}
+                                                            </span>
+                                                        </Link>
+                                                    );
+                                                }
+                                                return null;
+                                            }
+                                        )}
                                 </AccordionPanel>
                             </AccordionItem>
 
@@ -133,25 +187,29 @@ export default function Layout({ skils, children, posts }) {
                                             flex="1"
                                             textAlign="left"
                                         >
-                                            全てのタグ
+                                            全てのタグ (
+                                            {allTagSet && allTagSet.size})
                                         </Box>
                                         <AccordionIcon />
                                     </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                    {BackEnd.map((tag, index, tags) => (
-                                        <Link
-                                            href={"/works/skil/" + tag}
-                                            key={tag}
-                                        >
-                                            <span
-                                                key={tag}
-                                                className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-                                            >
-                                                {tag}
-                                            </span>
-                                        </Link>
-                                    ))}
+                                    {allTagSet &&
+                                        Array.from(allTagSet).map(
+                                            (tag, index) => (
+                                                <Link
+                                                    href={"/works/skil/" + tag}
+                                                    key={tag}
+                                                >
+                                                    <span
+                                                        key={tag}
+                                                        className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                </Link>
+                                            )
+                                        )}
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>
@@ -160,10 +218,7 @@ export default function Layout({ skils, children, posts }) {
                         <Button colorScheme="green">一覧画面に行く</Button>
                     </Link>
                 </Card>
-
                 <main>{children}</main>
-
-                <h1>レイアウト終わり</h1>
             </div>
         </>
     );

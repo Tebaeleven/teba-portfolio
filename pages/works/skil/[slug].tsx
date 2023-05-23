@@ -58,23 +58,22 @@ export async function getStaticPaths() {
         return acc;
     }, new Set([]));
 
-    console.log(allTagSet);
-
     //全てのカテゴリをslugにする
-    const postsPaths = Array.from(allTagSet).map((slug) => ({
+    const allTags = Array.from(allTagSet).map((slug) => ({
         params: {
             slug: slug,
         },
     }));
 
+
     return {
-        paths: postsPaths,
+        paths: allTags,
         fallback: false,
     };
 }
 SingleSkilPage.getLayout = function getLayout(page) {
     return (
-        <Layout skils={page.props.skils} >
+        <Layout allTags={page.props.posts} skils={page.props.skils} >
             {page}
         </Layout>
     );
