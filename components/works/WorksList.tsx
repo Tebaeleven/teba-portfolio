@@ -1,4 +1,4 @@
-import WorksCard from "./WorksCard"
+import WorksCard from "@/components/Works/WorksCard"
 
 export default function WorksList({ posts}) {
     return (

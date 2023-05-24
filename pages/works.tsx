@@ -27,7 +27,10 @@ export default function Works({ posts }) {
     const allTagsArr = [...allTagSet].sort((a, b) => a.localeCompare(b));
     //allを先頭に追加
     allTagsArr.unshift("all");
-
+    useEffect(() => {
+        setSelectedTag(router.query.skil || "all");
+        console.log("router.query.skil:", router.query.skil);
+    }, [router.query.skil]);
     useEffect(() => {
         const page = parseInt(router.query.page, 10) || 1;
         setCurrentPage(page);
@@ -53,9 +56,7 @@ export default function Works({ posts }) {
         setTotalPages(newTotalPages);
     }, [selectedTag, posts, router]);
 
-    useEffect(() => {
-        setSelectedTag(router.query.skil || "all");
-    }, [router.query.skil]);
+
 
 
 
