@@ -6,7 +6,7 @@ export default function TagFilter({ selectedTag, setSelectedTag, tags }) {
         <>
             {tags.map((tag) => (
                 <Link
-                    href={tag === "All" ? "/works" : "/works/skil/" + tag}
+                    href={tag === "all" ? "/works" : "?skil=" + tag}
                     key={tag}
                 >
                     <button
