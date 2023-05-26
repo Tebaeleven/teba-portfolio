@@ -64,11 +64,6 @@ export default function Works({ posts }) {
     return (
         <>
             <div className="bg-blue-100 pb-10">
-                <TagFilter
-                    selectedTag={selectedTag}
-                    setSelectedTag={setSelectedTag}
-                    tags={allTagsArr}
-                ></TagFilter>
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl ">
                     <WorksList posts={filterPosts}></WorksList>
                 </div>
@@ -94,6 +89,7 @@ export async function getStaticProps() {
             slug: slug.replace(/\.mdx?$/, ""),
         };
     });
+    console.log(posts)
     return {
         props: {
             posts,
@@ -103,3 +99,10 @@ export async function getStaticProps() {
 // Works.getLayout = function getLayout(page) {
 //     return <Layout allTags={page.props.posts}>{page}</Layout>;
 // };
+Works.getLayout = function getLayout(page) {
+    return (
+        <Layout allTags={page.props.posts} skils={page.props.skils}>
+            {page}
+        </Layout>
+    );
+};

@@ -90,8 +90,7 @@ export default function Layout({ skils, children, allTags }) {
                                                     return (
                                                         <Link
                                                             href={
-                                                                "/works/skil/" +
-                                                                tag
+                                                                "?skil=" + tag
                                                             }
                                                             key={tag}
                                                         >
@@ -135,8 +134,7 @@ export default function Layout({ skils, children, allTags }) {
                                                     return (
                                                         <Link
                                                             href={
-                                                                "/works/skil/" +
-                                                                tag
+                                                                "?skil=" + tag
                                                             }
                                                             key={tag}
                                                         >
@@ -180,8 +178,7 @@ export default function Layout({ skils, children, allTags }) {
                                                     return (
                                                         <Link
                                                             href={
-                                                                "/works/skil/" +
-                                                                tag
+                                                                "?skil=" + tag
                                                             }
                                                             key={tag}
                                                         >
@@ -216,7 +213,7 @@ export default function Layout({ skils, children, allTags }) {
                                         Array.from(allTagSet).map(
                                             (tag, index) => (
                                                 <Link
-                                                    href={"/works/skil/" + tag}
+                                                    href={"?skil=" + tag}
                                                     key={tag}
                                                 >
                                                     <span
