@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeaderNav from "./HeaderNav"
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
     const [selectedTag, setSelectedTag] = useState("Home");
@@ -12,6 +13,23 @@ export default function Header() {
         Activities: "activities",
         手羽先の哲学部屋: "teba-poem",
     };
+
+    const CustomLink = ({ href, title, className = "" }) => {
+        const router = useRouter()
+        return (
+            <Link href={href} className={`${className} relative group`}>
+                {title}
+                <span
+                    className={`
+                h-[3px] inline-block bg-indigo-600 absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 
+                ${router.asPath === href ? "w-full" : "w-0"}
+                `}
+                >
+                    &nbsp;
+                </span>
+            </Link>
+        );
+    }
     return (
         <>
             <div className="bg-white">
@@ -38,36 +56,31 @@ export default function Header() {
                         {/* logo - end */}
                         {/* nav - start */}
                         <nav className="hidden gap-12 lg:flex">
-                            <Link
+                            <CustomLink
                                 href="/about"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                            >
-                                About
-                            </Link>
-                            <Link
+                                title="About"
+                            ></CustomLink>
+                            <CustomLink
                                 href="/works"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                            >
-                                Works
-                            </Link>
-                            <Link
+                                title="Works"
+                            ></CustomLink>
+                            <CustomLink
                                 href="/experience"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                            >
-                                Experience
-                            </Link>
-                            <Link
+                                title="Experience"
+                            ></CustomLink>
+                            <CustomLink
                                 href="/activities"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                            >
-                                Activities
-                            </Link>
-                            <Link
+                                title="Activities"
+                            ></CustomLink>
+                            <CustomLink
                                 href="/teba-poem"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                            >
-                                手羽先の哲学部屋
-                            </Link>
+                                title="手羽先の哲学部屋"
+                            ></CustomLink>
                         </nav>
                         {/* nav - end */}
                         {/* buttons - start */}
