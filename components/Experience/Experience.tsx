@@ -40,7 +40,7 @@ export default function Exeperience() {
             </div>
             <div ref={ref} className="w-[75%] mx-auto relative">
                 <motion.div
-                    className="absolute bg-black left-9 top-0 w-[4px] h-full  origin-top"
+                    className="absolute bg-black left-9 top-1 w-[4px] h-full  origin-top"
                     style={{scaleY :scrollYProgress}}
                 />
 
@@ -63,7 +63,6 @@ export default function Exeperience() {
                     />
                 </ul>
             </div>
-            ;
         </>
     );
 }

@@ -17,11 +17,11 @@ export default function Header() {
     const CustomLink = ({ href, title, className = "" }) => {
         const router = useRouter()
         return (
-            <Link href={href} className={`${className} relative group`}>
+            <Link href={href} className={`${className} relative group ${router.asPath === href ? "text-indigo-500" : ""}`}>
                 {title}
                 <span
                     className={`
-                h-[3px] inline-block bg-indigo-600 absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 
+                h-[3px] inline-block bg-indigo-600 absolute left-0 -bottom-2 group-hover:w-full transition-[width] ease duration-500 
                 ${router.asPath === href ? "w-full" : "w-0"}
                 `}
                 >
