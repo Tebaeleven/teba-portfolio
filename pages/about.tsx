@@ -7,7 +7,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import mdxStyles from "@/components/mdx/mdx.module.css"
 import rehypePrettyCode from "rehype-pretty-code";
-import Exeperience from "@/components/Experience/Experience";
+import Experience from "@/components/Experience/Experience";
 export default function About({ source }) {
     return (
         <>
@@ -16,7 +16,7 @@ export default function About({ source }) {
                     <div className={mdxStyles.mdx}>
                         <MDXRemote {...source}></MDXRemote>
                     </div>
-                    <Exeperience></Exeperience>
+                    <Experience></Experience>
                 </div>
             </div>
         </>
