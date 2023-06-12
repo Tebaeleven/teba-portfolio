@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion,useScroll } from "framer-motion";
-import LiIcon from "./Lilcon"
+import LiIcon from "@/components/Lilcon";
 const Details = ({ position, company, companyLink, time, address, work }) => {
     const ref = useRef(null);
 
@@ -33,11 +33,11 @@ export default function Exeperience() {
     )
     return (
         <>
-            <div className="my-64">
+            {/* <div className="my-64">
                 <h2 className="font-bold text-8xl mb-32 w-full text-center">
                     Experience
                 </h2>
-            </div>
+            </div> */}
             <div ref={ref} className="w-[75%] mx-auto relative">
                 <motion.div
                     className="absolute bg-black left-9 top-1 w-[4px] h-full  origin-top"
