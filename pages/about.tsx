@@ -8,17 +8,15 @@ import { serialize } from "next-mdx-remote/serialize";
 import mdxStyles from "@/components/mdx/mdx.module.css"
 import rehypePrettyCode from "rehype-pretty-code";
 import Experience from "@/components/Experience/Experience";
+import BodyCard from "@/components/BodyCard";
 export default function About({ source }) {
     return (
         <>
-            <div className="bg-blue-100">
-                <div className="mx-auto max-w-screen-lg	py-4 px-4 md:px-8 ">
-                    <div className={mdxStyles.mdx}>
-                        <MDXRemote {...source}></MDXRemote>
-                    </div>
-                    <Experience></Experience>
+            <BodyCard>
+                <div className={mdxStyles.mdx}>
+                    <MDXRemote {...source}></MDXRemote>
                 </div>
-            </div>
+            </BodyCard>
         </>
     );
 }

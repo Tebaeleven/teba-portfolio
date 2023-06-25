@@ -73,6 +73,15 @@ export default function ActivitiesList() {
 
                 <ul className="w-full flex flex-col items-start justify-between ml-4">
                     <Details
+                        title="【会場開催】第81回CoderDojo久留米"
+                        company="CoderDojo久留米"
+                        link="https://coderdojo-kurume.connpass.com/event/287125/"
+                        time="2023/06/25 15:00~18:00"
+                        address="オフライン"
+                        event="Mekurutoで開催されました。マイクラカップに向けての準備やプログラミング関連のサポートをしました。"
+                        twitter=""
+                    />
+                    <Details
                         title="未踏福岡コンソーシアム説明会"
                         company="未踏福岡"
                         link="https://mitou-fukuoka.org/"

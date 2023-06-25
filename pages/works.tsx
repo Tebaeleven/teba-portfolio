@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Layout from "@/components/Layout/Works/Skil";
 import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
+import BodyCard from "@/components/BodyCard";
 
 export default function Works({ posts }) {
     const postPerPage = 3;
@@ -56,22 +57,19 @@ export default function Works({ posts }) {
         setTotalPages(newTotalPages);
     }, [selectedTag, posts, router]);
 
-
-
-
-
-
     return (
         <>
             <div className="bg-blue-100 pb-10">
-                <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl ">
+                <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl shadow-2xl">
                     <WorksList posts={filterPosts}></WorksList>
                 </div>
 
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                ></Pagination>
+                <div className="mt-5">
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                    ></Pagination>
+                </div>
             </div>
         </>
     );

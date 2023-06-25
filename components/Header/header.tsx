@@ -6,18 +6,15 @@ import { useRouter } from "next/router";
 export default function Header() {
     const [selectedTag, setSelectedTag] = useState("Home");
 
-    const tagMapping = {
-        Home: "/",
-        Works: "works",
-        Experience: "experience",
-        Activities: "activities",
-        手羽先の哲学部屋: "teba-poem",
-    };
-
     const CustomLink = ({ href, title, className = "" }) => {
         const router = useRouter()
         return (
-            <Link href={href} className={`${className} relative group ${router.asPath === href ? "text-indigo-500" : ""}`}>
+            <Link
+                href={href}
+                className={`text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700 relative group ${
+                    router.asPath === href ? "text-indigo-500" : ""
+                }`}
+            >
                 {title}
                 <span
                     className={`
@@ -34,7 +31,7 @@ export default function Header() {
         <>
             <div className="bg-white">
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <header className="flex items-center justify-between py-4 md:py-8">
+                    <header className="flex items-center justify-between py-4 md:py-8 ">
                         {/* logo - start */}
                         <Link
                             href="/"
@@ -56,42 +53,30 @@ export default function Header() {
                         {/* logo - end */}
                         {/* nav - start */}
                         <nav className="hidden gap-12 lg:flex">
-                            <CustomLink
-                                href="/about"
-                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                                title="About"
-                            ></CustomLink>
-                            <CustomLink
-                                href="/works"
-                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                                title="Works"
-                            ></CustomLink>
-                            <CustomLink
-                                href="/experience"
-                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                                title="Experience"
-                            ></CustomLink>
-                            <CustomLink
-                                href="/activities"
-                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                                title="Activities"
-                            ></CustomLink>
+                            <CustomLink href="/about" title="私について" />
+                            <CustomLink href="/works" title="作品集" />
+                            <CustomLink href="/experience" title="実務経験" />
+                            <CustomLink href="/activities" title="活動" />
+                            <CustomLink href="/blog" title="ブログ" />
+
                             <CustomLink
                                 href="/teba-poem"
-                                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                                 title="手羽先の哲学部屋"
-                            ></CustomLink>
+                            />
                         </nav>
                         {/* nav - end */}
                         {/* buttons - start */}
                         <a
-                            href="#"
+                            href="https://twitter.com/Tebasaki_lab"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
                         >
-                            Contact
+                            連絡 (Twitter)
                         </a>
                         <button
                             type="button"
+                            formTarget=""
                             className="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden"
                         >
                             <svg
