@@ -1,10 +1,14 @@
-
-//nodejsに標準搭載されているpathとfsをimport
 import path from "path";
 import fs from "fs";
-//mdxが入っているフォルダのpath
-export const postsPath = path.join(process.cwd(), "mdxPosts/works");
-//postsPath mdx形式のファイルを全て取得する
-export const postsFileNames = fs
-    .readdirSync(postsPath)
-    .filter((fileName) => /\.mdx$/.test(fileName));
+
+export const dir = path.join(process.cwd(), "mdxPosts/works");
+
+export const postsDirectory = fs
+    .readdirSync(dir)
+    .filter((fileName) => fs.statSync(path.join(dir, fileName)).isDirectory())
+    .map((directory) => ({
+        directory,
+        mdxFiles: fs
+            .readdirSync(path.join(dir, directory))
+            .filter((fileName) => /\.mdx$/.test(fileName)),
+    }));

@@ -1,5 +1,5 @@
 import React from "react";
-import { postsPath,postsFileNames } from "@/utils/mdxWorks";
+import { postsDirectory, dir } from "@/utils/mdxWorks";
 import { MDXRemote } from "next-mdx-remote";
 import path from "path";
 import fs from "fs";
@@ -24,7 +24,9 @@ export default function SingleWorksPage({ mdxSource }) {
 
 export async function getStaticProps({ params }) {
     const { slug } = params;
-    const filePath = path.join(postsPath, `${slug}.mdx`);
+    console.log("dada",slug)
+    const filePath = path.join(dir, `${slug}/main.mdx`);
+    
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const { data: frontmatter, content } = matter(fileContent);
     const options = {
@@ -65,6 +67,7 @@ export async function getStaticProps({ params }) {
             rehypePlugins: [[rehypePrettyCode, options]],
         },
     });
+    
     return {
         props: {
             mdxSource,
@@ -73,13 +76,18 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const postsPaths = postsFileNames.map((slug) => ({
-        params: {
-            slug: slug.replace(/\.mdx?$/, ""),
-        },
-    }));
+    let posts = [];
+    postsDirectory.forEach((directory) => {
+        const dirs=directory.directory
+        posts.push({
+            params: {
+                slug: dirs,
+            },
+        });
+    });
+    console.log("パス", posts);
     return {
-        paths: postsPaths,
+        paths: posts,
         fallback: false,
     };
 }

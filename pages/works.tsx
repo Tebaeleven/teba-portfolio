@@ -1,4 +1,4 @@
-import { postsFileNames, postsPath } from "@/utils/mdxWorks";
+import { postsDirectory, dir } from "@/utils/mdxWorks";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -10,14 +10,15 @@ import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
 import BodyCard from "@/components/BodyCard";
 
-export default function Works({ posts }) {
+export default function Works({ posts, titleDir }) {
     const postPerPage = 3;
     const [currentPage, setCurrentPage] = useState(null);
     const [selectedTag, setSelectedTag] = useState(null);
     const [filterPosts, setFilterPosts] = useState(posts);
     const [totalPages, setTotalPages] = useState(1); // totalPagesの状態を追加
-
     const router = useRouter();
+
+    console.log("表示パス", titleDir);
 
     const allTagSet = posts.reduce((acc, posts) => {
         posts.frontmatter.tags.map((tag) => acc.add(tag));
@@ -26,12 +27,15 @@ export default function Works({ posts }) {
 
     //アルファベット順にソート
     const allTagsArr = [...allTagSet].sort((a, b) => a.localeCompare(b));
+
     //allを先頭に追加
     allTagsArr.unshift("all");
+
     useEffect(() => {
         setSelectedTag(router.query.skil || "all");
         console.log("router.query.skil:", router.query.skil);
     }, [router.query.skil]);
+
     useEffect(() => {
         const page = parseInt(router.query.page, 10) || 1;
         setCurrentPage(page);
@@ -56,12 +60,11 @@ export default function Works({ posts }) {
                 : Math.ceil(tempPosts.length / postPerPage);
         setTotalPages(newTotalPages);
     }, [selectedTag, posts, router]);
-
     return (
         <>
             <div className="bg-blue-100 pb-10">
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl shadow-2xl">
-                    <WorksList posts={filterPosts}></WorksList>
+                    <WorksList posts={filterPosts} ></WorksList>
                 </div>
 
                 <div className="mt-5">
@@ -76,18 +79,23 @@ export default function Works({ posts }) {
 }
 
 export async function getStaticProps() {
-    //postsFileNamesには全てのファイル名が入っているので、mapする
-    const posts = postsFileNames.map((slug) => {
-        //readFileSyncでpostsPathと各ファイル名を繋げたものを読み込む
-        const content = fs.readFileSync(path.join(postsPath, slug));
-        //gray-matterライブラリを使ってcontentからfrontmatter情報を読み込む
-        const { data } = matter(content);
-        return {
-            frontmatter: data,
-            slug: slug.replace(/\.mdx?$/, ""),
-        };
+    let posts = []
+    postsDirectory.forEach((directory) => {
+        let titleDir=directory.directory
+        const directoryPath = path.join(dir, directory.directory); // /dir/
+        const mdxFiles = directory.mdxFiles; //[1.mdx,2.mdx]
+
+        mdxFiles.forEach((slug) => {
+            const filePath = path.join(directoryPath, slug);
+            const content = fs.readFileSync(filePath, "utf-8");
+            const { data } = matter(content);
+
+            posts.push({
+                frontmatter: data,
+                slug:titleDir,                
+            });
+        });
     });
-    console.log(posts)
     return {
         props: {
             posts,
