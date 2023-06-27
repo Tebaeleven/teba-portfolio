@@ -8,17 +8,14 @@ import { useEffect, useState } from "react";
 import Layout from "@/components/Layout/Works/Skil";
 import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
-import BodyCard from "@/components/BodyCard";
 
-export default function Works({ posts, titleDir }) {
+export default function Works({ posts}) {
     const postPerPage = 3;
     const [currentPage, setCurrentPage] = useState(null);
     const [selectedTag, setSelectedTag] = useState(null);
     const [filterPosts, setFilterPosts] = useState(posts);
     const [totalPages, setTotalPages] = useState(1); // totalPagesの状態を追加
     const router = useRouter();
-
-    console.log("表示パス", titleDir);
 
     const allTagSet = posts.reduce((acc, posts) => {
         posts.frontmatter.tags.map((tag) => acc.add(tag));
@@ -62,6 +59,7 @@ export default function Works({ posts, titleDir }) {
     }, [selectedTag, posts, router]);
     return (
         <>
+
             <div className="bg-blue-100 pb-10">
                 <div className="flex flex-wrap max-w-screen-xl bg-white mx-auto  py-1 px-1 rounded-xl shadow-2xl">
                     <WorksList posts={filterPosts} ></WorksList>

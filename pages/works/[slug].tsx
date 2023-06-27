@@ -7,17 +7,16 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import mdxStyles from "@/components/mdx/mdx.module.css"
 import rehypePrettyCode from "rehype-pretty-code";
+import BodyCard from "@/components/BodyCard";
 
 export default function SingleWorksPage({ mdxSource }) {
     return (
         <>
-            <div className="bg-blue-100">
-                <div className="mx-auto max-w-screen-lg	py-4 px-4 md:px-8 ">
-                    <div className={mdxStyles.mdx}>
-                        <MDXRemote {...mdxSource}></MDXRemote>
-                    </div>
+            <BodyCard>
+                <div className={mdxStyles.mdx}>
+                    <MDXRemote {...mdxSource}></MDXRemote>
                 </div>
-            </div>
+            </BodyCard>
         </>
     );
 }
