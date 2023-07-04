@@ -60,8 +60,8 @@ export default function ActivitiesList() {
     });
     return (
         <>
-            <div className="my-32">
-                <h2 className="font-bold text-8xl mb-32 w-full text-center">
+            <div className="my-10">
+                <h2 className="font-bold text-8xl mb-16 w-full text-center">
                     Activities
                 </h2>
             </div>
