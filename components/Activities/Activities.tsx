@@ -73,6 +73,15 @@ export default function ActivitiesList() {
 
                 <ul className="w-full flex flex-col items-start justify-between ml-4">
                     <Details
+                        title="第1回ブートキャンプ@グリーンピア八女"
+                        company="未踏福岡"
+                        link="https://mitou-fukuoka.org/#about"
+                        time="2023/07/01 10:00 ~ 2023/07/02 13:00"
+                        address="オフライン"
+                        event="グリーンピア八女で一泊二日の未踏福岡の合宿がありました！PMや先生、仲間たちとアイデアを出したり提案内容をブラッシュアップしたりしました。色々と勉強になりました。短い時間でしたが、友達や先生と繋がることができたのでとても良かったです。VPLや動的ビジュアル環境に興味がある先生とも仲良くなることができました。この合宿のあと、Twitterのフォロワーが約20人増えるほど盛り上がりました。"
+                        twitter="https://twitter.com/Tebasaki_lab/status/1675502025973563392?s=20"
+                    />
+                    <Details
                         title="【会場開催】第81回CoderDojo久留米"
                         company="CoderDojo久留米"
                         link="https://coderdojo-kurume.connpass.com/event/287125/"
