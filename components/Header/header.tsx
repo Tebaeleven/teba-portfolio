@@ -54,6 +54,7 @@ export default function Header() {
                         {/* nav - start */}
                         <nav className="hidden gap-12 lg:flex">
                             <CustomLink href="/about" title="私について" />
+                            <CustomLink href="/skil" title="スキル" />
                             <CustomLink href="/works" title="作品集" />
                             <CustomLink href="/experience" title="実務経験" />
                             <CustomLink href="/activities" title="活動" />
