@@ -31,6 +31,7 @@
     "rehype-pretty-code": "^0.9.5",
     "shiki": "^0.14.2",
     "tailwindcss": "3.3.2",
+    "tocbot": "^4.21.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {

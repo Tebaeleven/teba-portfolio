@@ -9,14 +9,56 @@ import mdxStyles from "@/components/mdx/mdx.module.css"
 import rehypePrettyCode from "rehype-pretty-code";
 import Experience from "@/components/Experience/Experience";
 import BodyCard from "@/components/BodyCard";
+import { useEffect } from "react";
+import tocbot from "tocbot";
+import TextHeading from "@/components/mdx/TextHeading";
+import Card from "@/components/card";
+const MDXcomponents = {
+    h1: (props) => <TextHeading level={1} {...props}></TextHeading>,
+    h2: (props) => <TextHeading level={2} {...props}></TextHeading>,
+    h3: (props) => <TextHeading level={3} {...props}></TextHeading>,
+}
 export default function About({ source }) {
+
+    useEffect(() => {
+        tocbot.init({
+            tocSelector: ".toc",
+            contentSelector: ".post",
+            headingSelector: "h1, h2, h3",
+        });
+        return () => tocbot.destroy();
+    }, []);
+
     return (
         <>
-            <BodyCard>
-                <div className={mdxStyles.mdx}>
-                    <MDXRemote {...source}></MDXRemote>
-                </div>
-            </BodyCard>
+        <div className=" bg-blue-200">
+            <div className=" w-7/12 p-5 m-auto flex justify-between">
+
+                <article className=" w-9/12 mr-5">
+                        <div className="post">
+                    <Card>
+
+                            <div className={mdxStyles.mdx}>
+
+                                <MDXRemote {...source} components={MDXcomponents}></MDXRemote>
+                            </div>
+                    </Card>
+
+                        </div>
+                        
+
+                </article>
+                <aside className=" w-1/4">
+                    <Card className={"sticky top-5 z-50 p-5"}>
+                        <div className="toc"></div>
+                    </Card>
+                </aside>
+
+            </div>
+
+            </div>
+
+
         </>
     );
 }
