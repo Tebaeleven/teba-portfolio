@@ -26,9 +26,9 @@ const Details = ({ title, company, link, time, address, event, twitter }) => {
                         @{company}
                     </a>
                 </h3>
-                <span className="capitalize font-medium text-dark/75">
+                <p className="text-dark/75 my-2 font-bold">
                     {time} | {address}
-                </span>
+                </p>
                 <p className="font-medium w-full">{event}</p>
                 {twitter && (
                     <Link
@@ -37,7 +37,7 @@ const Details = ({ title, company, link, time, address, event, twitter }) => {
                         className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
                     >
                         <svg
-                            className="h-5 w-5"
+                            className="h-5 w-5 my-2"
                             width={24}
                             height={24}
                             viewBox="0 0 24 24"
@@ -72,6 +72,15 @@ export default function ActivitiesList() {
                 />
 
                 <ul className="w-full flex flex-col items-start justify-between ml-4">
+                <Details
+                        title="全国キャラバンin北九州ブロック（福岡）@イオンモール福津"
+                        company="マイクラカップ"
+                        link="https://fb.me/e/4wlcLdIcf"
+                        time="2023/07/23 10:00 ~ 2023/07/23 16:00"
+                        address="オフライン"
+                        event="イオンモール福津でマイクラキャラバンのスタッフを担当しました。CoderDojo久留米のメンバー、KCCのメンバー、マイクラカップ事務局のメンバーでした。操作、チラシ、整理券案内などの担当をしました。めちゃくちゃ疲れましたが、その分最高でした！チラシを私一人で100枚以上配れたのもやりがいがありました。"
+                        twitter="https://twitter.com/Tebasaki_lab/status/1682964912006660096?s=20"
+                    />
                     <Details
                         title="第1回ブートキャンプ@グリーンピア八女"
                         company="未踏福岡"
